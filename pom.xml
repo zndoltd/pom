@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ltd.zndo.pom</groupId>
+	<artifactId>pom-top</artifactId>
+	<version>1.0.0-RELEASE</version>
+	<packaging>pom</packaging>
+
+	<name>TOP POM</name>
+	<description>TOP Parent POM</description>
+	<url>https://github.com/zndoltd/pom</url>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>zndo</name>
+			<email>zndo@live.com</email>
+			<organization>${org.name}</organization>
+			<organizationUrl>${org.url}</organizationUrl>
+		</developer>
+	</developers>
+
+	<organization>
+		<name>${org.name}</name>
+		<url>${org.url}</url>
+	</organization>
+
+	<properties>
+		<org.name>ZNDO Software Ltd</org.name>
+		<org.url>https://zndo.ltd</org.url>
+	</properties>
+
+	<scm>
+		<url>https://github.com/zndoltd/pom</url>
+		<connection>scm:git:git@github.com:zndoltd/pom.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:zndoltd/pom.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/zndoltd/pom/issues</url>
+	</issueManagement>
+
+	<modules>
+		<module>zndo-pom-parent</module>
+	</modules>
+
+	<inceptionYear>2006</inceptionYear>
+
+</project>

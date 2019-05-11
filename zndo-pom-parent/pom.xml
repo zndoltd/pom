@@ -1,0 +1,375 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- 父级坐标 -->
+	<parent>
+		<groupId>ltd.zndo.pom</groupId>
+		<artifactId>pom-top</artifactId>
+		<version>1.0.0-RELEASE</version>
+	</parent>
+
+	<!-- 项目坐标 -->
+	<artifactId>zndo-pom-parent</artifactId>
+	<version>1.0.4-RELEASE</version>
+	<packaging>pom</packaging>
+
+	<!-- 项目描述 -->
+	<name>ZNDO Parent POM</name>
+	<description>Parent pom for Java applications built with Maven</description>
+	<url>https://github.com/zndoltd/pom</url>
+
+	<!-- 授权许可 -->
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<!-- 开发人员 -->
+	<developers>
+		<developer>
+			<name>zndo</name>
+			<email>zndo@live.com</email>
+			<organization>${org.name}</organization>
+			<organizationUrl>${org.url}</organizationUrl>
+		</developer>
+	</developers>
+
+	<!-- 组织信息 -->
+	<organization>
+		<name>${org.name}</name>
+		<url>${org.url}</url>
+	</organization>
+
+	<!-- 属性定义 -->
+	<properties>
+		<!-- global -->
+		<global.jdk>1.8</global.jdk>
+		<global.encoding>UTF-8</global.encoding>
+		<!-- compiler -->
+		<java.version>${global.jdk}</java.version>
+		<resource.delimiter>@</resource.delimiter>
+		<project.build.sourceEncoding>${global.encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${global.encoding}</project.reporting.outputEncoding>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<!-- org -->
+		<org.name>ZNDO Software Ltd</org.name>
+		<org.url>https://zndo.ltd</org.url>
+		<!-- spring -->
+		<boot.version>2.1.4.RELEASE</boot.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+		<!-- plugins -->
+		<kotlin.version>1.2.71</kotlin.version>
+		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+		<flatten-maven-plugin.version>1.0.1</flatten-maven-plugin.version>
+		<git-commit-id-plugin.version>2.2.6</git-commit-id-plugin.version>
+		<maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+		<maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
+		<maven-failsafe-plugin.version>2.22.1</maven-failsafe-plugin.version>
+		<maven-help-plugin.version>3.1.1</maven-help-plugin.version>
+		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+		<maven-invoker-plugin.version>3.1.0</maven-invoker-plugin.version>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+		<maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
+		<maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
+		<maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+		<spring-ldap.version>2.3.2.RELEASE</spring-ldap.version>
+		<spring-plugin.version>1.2.0.RELEASE</spring-plugin.version>
+		<versions-maven-plugin.version>2.7</versions-maven-plugin.version>
+		<xml-maven-plugin.version>1.0.2</xml-maven-plugin.version>
+		<spring-boot-maven-plugin.version>${boot.version}</spring-boot-maven-plugin.version>
+		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
+		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+		<!-- other -->
+	</properties>
+
+	<!-- SCM -->
+	<scm>
+		<url>https://github.com/zndoltd/pom</url>
+		<connection>scm:git:git@github.com:zndoltd/pom.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:zndoltd/pom.git</developerConnection>
+	</scm>
+
+	<!-- 问题跟踪 -->
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/zndoltd/pom/issues</url>
+	</issueManagement>
+
+	<!-- 依赖管理 -->
+	<dependencyManagement>
+		<!-- 此处覆盖定义版本 -->
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- 常用依赖 -->
+	<dependencies>
+	</dependencies>
+
+	<!-- 构建 -->
+	<build>
+		<!-- 资源 -->
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>${basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/application*.yml</include>
+					<include>**/application*.yaml</include>
+					<include>**/application*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>**/application*.yml</exclude>
+					<exclude>**/application*.yaml</exclude>
+					<exclude>**/application*.properties</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<!-- 插件管理 -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.jetbrains.kotlin</groupId>
+					<artifactId>kotlin-maven-plugin</artifactId>
+					<version>${kotlin.version}</version>
+					<executions>
+						<execution>
+							<id>compile</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>compile</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>test-compile</id>
+							<phase>test-compile</phase>
+							<goals>
+								<goal>test-compile</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<jvmTarget>${java.version}</jvmTarget>
+						<javaParameters>true</javaParameters>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<parameters>true</parameters>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven-failsafe-plugin.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>integration-test</goal>
+								<goal>verify</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<classesDirectory>${project.build.outputDirectory}</classesDirectory>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>${start-class}</mainClass>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven-war-plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>${start-class}</mainClass>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>${exec-maven-plugin.version}</version>
+					<configuration>
+						<mainClass>${start-class}</mainClass>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+					<configuration>
+						<delimiters>
+							<delimiter>${resource.delimiter}</delimiter>
+						</delimiters>
+						<useDefaultDelimiters>false</useDefaultDelimiters>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>pl.project13.maven</groupId>
+					<artifactId>git-commit-id-plugin</artifactId>
+					<version>${git-commit-id-plugin.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>revision</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<verbose>true</verbose>
+						<dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+						<generateGitPropertiesFile>true</generateGitPropertiesFile>
+						<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>repackage</id>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>${start-class}</mainClass>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-shade-plugin</artifactId>
+					<version>${maven-shade-plugin.version}</version>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>shade</goal>
+							</goals>
+							<configuration>
+								<transformers>
+									<transformer
+										implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+										<resource>META-INF/spring.handlers</resource>
+									</transformer>
+									<transformer
+										implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
+										<resource>META-INF/spring.factories</resource>
+									</transformer>
+									<transformer
+										implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+										<resource>META-INF/spring.schemas</resource>
+									</transformer>
+									<transformer
+										implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+									<transformer
+										implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+										<mainClass>${start-class}</mainClass>
+									</transformer>
+								</transformers>
+							</configuration>
+						</execution>
+					</executions>
+					<dependencies>
+						<dependency>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-maven-plugin</artifactId>
+							<version>${spring-boot-maven-plugin.version}</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
+						<createDependencyReducedPom>true</createDependencyReducedPom>
+						<filters>
+							<filter>
+								<artifact>*:*</artifact>
+								<excludes>
+									<exclude>META-INF/*.SF</exclude>
+									<exclude>META-INF/*.DSA</exclude>
+									<exclude>META-INF/*.RSA</exclude>
+								</excludes>
+							</filter>
+						</filters>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>${lifecycle-mapping.version}</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>flatten-maven-plugin</artifactId>
+										<versionRange>[${lifecycle-mapping.version},)</versionRange>
+										<goals>
+											<goal>flatten</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-checkstyle-plugin</artifactId>
+										<versionRange>[${maven-checkstyle-plugin.version},)</versionRange>
+										<goals>
+											<goal>check</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
