@@ -4,6 +4,6 @@
 <parent>
     <groupId>ltd.zndo.pom</groupId>
     <artifactId>zndo-pom-parent</artifactId>
-    <version>1.0.4-RELEASE</version>
+    <version>1.0.6-RELEASE</version>
 </parent>
 ```
